@@ -1,0 +1,731 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color:#071a33 ;
+}
+.banner{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#020d1b,#071a33)
+}
+
+.bg-color{
+    background-color: #fff;
+}
+
+.banner img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.25;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.banner .content{
+    position: relative;
+    width: 950px;
+    text-align: center;
+}
+.banner .content h2{
+    color: #fff;
+    font-weight: 700;
+    font-size: 2.8em;
+}
+
+.banner:before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 300px;
+    width: 400px;
+    background: #06397a;
+    height: 280px;
+    z-index: 1;
+    transition: 1s;
+}
+.banner.active:before{
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #151415;
+    z-index: 2;
+}
+
+.banner:after{
+    position: absolute;
+    content: '';
+    bottom: 0;
+    right: 100px;
+    width: 400px;
+    background: #06397a;
+    height: 200px;
+    z-index: 0;
+    transition: 1s;
+}
+
+.banner.active:after{
+    width: 50%;
+    height: 100%;
+    background: #151415;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+}
+.banner.active .logo{
+    transform: scale(0);
+    transform-origin: left;
+}
+
+.banner.active .content{
+    transform: scale(0);
+    transform-origin: left;
+}
+
+.banner.active .sci{
+    transform: scale(0);
+    transform-origin: left;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 1000;
+    transition: 0.6s;
+}
+header.sticky{
+    padding: 10px 100px;
+    background: #111;
+
+}
+
+header.sticky .logo{
+    color: #fff;
+}
+
+header .logo{
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.6s;
+    transform-origin: right;
+}
+
+.toggle{
+    width: 30px;
+    height: 30px;
+    background: url("menu.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30px;
+    cursor: pointer;
+}
+
+.toggle.active{
+    background: url("close.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px;
+    cursor: pointer;
+
+}
+header.sticky.toggle{
+    background:url("menu1.png")
+}
+
+.content{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    transition: 0.5s;
+    transform-origin: right;
+    flex-direction: column;
+    
+}
+
+.content .contentbox{
+    
+    position: relative;
+    width: 950px;
+    text-align: center;
+}
+
+.content .contentbox h2{
+    color: #fff;
+    font-weight: 300;
+    font-size: 4em;
+    line-height: 60px;
+}
+.content .contentbox h3{
+    color: #fff;
+    font-weight: 600;
+    font-size: 6em;
+
+}
+.content .contentbox span{
+    color: #fff;
+    font-weight: 600;
+    font-size: 6em;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+.content .contentbox h3:hover ~ .cursor{
+    transform: scale(6);
+}
+
+.content .contentbox p{
+    font-size: 1em;
+    color: #fff;
+    padding: 20px 0px;
+}
+
+.content .contentbox .sub{
+    font-size: 1.6em;
+    color: #fff;
+    padding: 20px 0px;
+    font-weight: 500;
+}
+
+
+.content  a{
+    display:inline-flex;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.5s;
+    margin-top: 40px;
+}
+.content  a:hover{
+    letter-spacing: 4px;
+    background:#fff;
+    color: #111;
+}
+
+.content .imgbox img{
+    max-width: 100%;
+    min-height: 400px;
+    bottom: 0;
+
+}
+
+.sci{
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    transform-origin: right;
+    z-index: 4;
+}
+
+.sci li{
+    list-style: none;
+}
+.sci li a{
+    filter: invert(1);
+    margin-right: 20px;
+    transform: scale(0.6);
+    display: inline-block;
+}
+
+.menu{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    transition-delay: 0s;
+    
+}
+
+.banner.active .menu{
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 1s;
+
+}
+
+.menu li{
+    list-style: none;
+}
+
+.menu li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 4em;
+    font-weight: 300;
+    
+}
+
+ul li:hover ~ .cursor{
+    transform: scale(6);
+}
+
+
+.cursor{
+    position: fixed;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #fff;
+    transition: 0.1s;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    mix-blend-mode: difference;
+
+}
+.about{
+    position: relative;
+    width: 100%;
+    display: flex;
+    height: 100vh;
+}
+.about .contentbox{
+    padding: 100px;
+}
+
+.heading{
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 4.2em;
+    line-height: 70px;
+    margin-top: 60px;
+}
+.about .contentbox h3{
+    color: rgb(233, 234, 235);
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 54px;
+    margin-top: 40px;
+}
+.about .contentbox .subtitle{
+    font-size: 28px;
+    color: rgb(233, 234, 235);
+    font-weight: 300;
+    margin-top: 10px;
+
+    
+}
+.about img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.about .contentbox a{
+    display: inline-block;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.5s;
+    margin-top: 40px;
+    cursor: pointer;
+
+}
+.about .contentbox a:hover{
+    letter-spacing: 4px;
+    color: #111;
+    background: #fff;
+}
+
+.services{
+    padding: 0px 100px;
+    background-color: #020d1b;
+    height: 130vh;
+}
+
+.max-width{
+    margin: auto;
+    max-width: 1360px;
+
+    
+}
+
+.max-width .title{
+    font-size: 4em;
+    color: #fff;
+    padding: 50px 0;
+    position: relative;
+    text-align: center;
+    
+    
+
+
+}
+
+.serv-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    grid-row-gap: 20px ;
+    
+}
+
+.card{
+    padding: 30px 25px;
+    width: calc(26% - 30px);
+    border-radius: 6px;
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+   
+}
+
+.card:hover{
+    background: #06397a;
+}
+.box{
+    transition: all 0.3s ease;
+}
+.card:hover .box{
+    transform: scale(1.05);
+}
+.box i{
+    font-size: 40px;
+    color: #06397a;
+    transition: color 0.3s ease;
+}
+.card:hover .box i{
+    color: #fff;
+}
+
+.box .text{
+    font-size: 25px;
+    padding: 10px 0;
+    font-weight: 400;
+} 
+
+.box p{
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.box .sub{
+    font-weight: 200;
+    padding: 10px;
+} 
+
+.hero{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background: #151415;
+    display: flex;
+    flex-direction: column;
+}
+.hero h1{
+    font-size: 4.2em;
+    color: #fff;
+    padding: 50px 0;
+    text-align: left;
+    padding: 100px;
+    margin-top: 150px;
+    line-height: 70px;
+}
+
+
+.slide-row{
+    display: flex;
+    width: 2400px;
+    margin-top: 210px;
+    transition: 0.5s;
+}
+.slide-col{
+    width: 800px;
+    height: 400px;
+    position: relative;
+
+}
+.text1 {
+    color: #fff;
+    padding: 45px 0;
+    font-size: 32px;
+    position: absolute;
+    width: 520px;
+    height: 270px;
+}
+
+.text1 p{
+    color: #fff;
+    font-weight: 200;
+    font-size: 20px;
+}
+.text1 h2{
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.container{
+    width: 800px;
+    height: 400px;
+    position: absolute;
+    left: 50%;
+}
+.indicator{
+    position: absolute;
+    bottom: -110px;
+}
+.btn{
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    border-radius: 15px;
+    margin: 4px;
+    background: rgb(184, 184, 184);
+    cursor: pointer;
+    transition: 0.5s;
+}
+.active1{
+    width: 45px;
+    background: #fff;
+}
+.servi{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.client{
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    overflow: hidden;
+}
+
+.client div{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #06397a;
+}
+.client div:nth-child(2){
+    background: #e91e63;
+    clip-path: circle(150px at center);
+}
+
+.client div h5{
+    color: #fff;
+    left: 0;
+    position: absolute;
+    font-size: 10em;
+    white-space: nowrap;
+    line-height: 50vh;
+    cursor: default;
+    animation: animate 30s linear infinite;
+}
+
+.client div:nth-child(2) h5{
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: #fff;
+    color: transparent;
+}
+@keyframes animate{
+    0%
+    {
+        transform: translateX(0);
+    }
+    100%
+    {
+        transform: translateX(-100%);
+    }
+}
+
+.container1{
+    height: 50vh;
+    width: 100%;
+    background: #06397a;
+}
+
+.add{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #53ACFF;
+}
+
+.add .text{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    top: 20%;
+
+}
+
+.add .text h3{
+    font-size: 3.2em;
+    width: 1000px;
+    height: 120px;
+    text-align: center;
+    color: #fff;
+    margin-top: 60px;
+    line-height: 1.2em;
+}
+
+.add .text p{
+    color: #fff;
+    font-size: 1.4em;
+    margin-top: 40px;
+    font-weight: 200;
+}
+
+.add .text a{
+    
+    
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.5s;
+    margin-top: 40px;
+
+}
+.add .text a:hover{
+    background: #fff;
+    color: #111;
+    letter-spacing: 4px;
+}
+
+.imgbx2{
+    background: url('pencils.jpg');
+    background-size: cover;
+    width: 50%;
+    background-position: center;
+}
+
+.imgbx2 h2{
+    font-size: 4.2em;
+    color: #fff;
+    margin-top: 110px;
+    width: 420px;
+    margin-left: 50px;
+    line-height: 1.2em;
+}
+
+.regbg{
+    background: url('red.jpg') !important;
+    background-size: cover;
+    width: 50%;
+    background-position: center;
+}
+
+.form .inputbox{
+    margin-bottom: 40px;
+}
+
+.form .inputbox input,textarea{
+    width: 100%;
+    background: transparent;
+    padding: 10px 0;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 300px;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+}
+
+.form .inputbox input::placeholder{
+    color: #fff;
+}
+
+.form .inputbox textarea{
+    min-height: 150px;
+}
+
+.form .inputbox textarea::placeholder{
+    color: #fff;
+}
+
+.form .inputbox input[type="submit"]{
+    width: 150px;
+    background: #fff;
+    font-weight: 400;
+    color: #111;
+    cursor: pointer;
+}
+
+[lazy="fromRight"] {
+    -webkit-transform: translateX(30%);
+    transform: translateX(30%);
+    opacity: 0;
+    transition-duration : 1s
+}
+  
+[lazy="fromLeft"] {
+    -webkit-transform: translateX(-30%);
+    transform: translateX(-30%);
+    opacity: 0;
+    transition-duration : 1s
+}
+  
+[lazy="fromTop"] {
+    -webkit-transform: translateY(-30%);
+    transform: translateY(-30%);
+    opacity: 0;
+    transition-duration : 1s
+}
+  
+[lazy="fromBottom"] {
+    -webkit-transform: translateY(30%);
+    transform: translateY(30%);
+    opacity: 0;
+    transition-duration : 1s
+}
+
